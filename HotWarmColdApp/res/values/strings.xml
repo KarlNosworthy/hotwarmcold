@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hot, Warm, Cold</string>
+    <string name="beacon">Beacon</string>
+    <string name="cannot_start_ranging">Cannot start ranging</string>
+    <string name="cannot_start_ranging_something_wrong">Cannot start ranging, something has gone wrong</string>
+    <string name="cold">COLD</string>
+    <string name="warm">WARM</string>
+    <string name="hot">HOT</string>
+    <string name="question_mark">\?</string>
+    
+    <string name="major">Major</string>
+    <string name="minor">Minor</string>
+    
+    <string name="power">Power</string>
+    
+    <string name="dbm">dBm</string>
+    <string name="rssi">Rssi</string>
+
+</resources>

@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				    android:id="@+id/container"
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:orientation="vertical">
+    
+    <TextView android:id="@+id/beacon_title"
+        	  android:layout_width="wrap_content"
+        	  android:layout_height="wrap_content"
+        	  android:layout_centerHorizontal="true"
+        	  android:padding="8dp"
+        	  android:text="@string/beacon"
+        	  style="@style/beacon_label_style"/>
+    
+    <TextView android:id="@+id/beacon_uuid_label"
+        	  android:layout_width="wrap_content"
+        	  android:layout_height="wrap_content"
+        	  android:layout_centerHorizontal="true"
+        	  android:layout_below="@id/beacon_title"
+        	  style="@style/beacon_property_label_style"/>
+    
+    <TextView android:id="@+id/beacon_major_minor_label"
+        	  android:layout_width="wrap_content"
+        	  android:layout_height="wrap_content"
+        	  android:layout_centerHorizontal="true"
+        	  android:layout_below="@id/beacon_uuid_label"
+        	  style="@style/beacon_property_label_style"/>
+    
+    <TextView android:id="@+id/range_label"
+        	  android:layout_width="260dp"
+        	  android:layout_height="260dp"
+        	  android:layout_gravity="center_vertical|center_horizontal"
+        	  android:gravity="center_vertical|center_horizontal"
+        	  android:background="@drawable/indicator_background"
+        	  android:maxLines="1"
+        	  android:layout_centerInParent="true"
+        	  style="@style/indicator_label_style"/>
+    
+    <TextView android:id="@+id/beacon_stats_label"
+        	  android:layout_width="wrap_content"
+        	  android:layout_height="wrap_content"
+        	  android:layout_centerHorizontal="true"
+        	  android:padding="15dp"
+        	  android:layout_below="@id/range_label"
+        	  style="@style/beacon_property_label_style"/>
+        	  
+    
+</RelativeLayout>
