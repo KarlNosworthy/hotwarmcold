@@ -18,6 +18,7 @@ import com.estimote.sdk.Utils;
 
 public class HoldWarmColdActivity extends Activity {
 
+	// Change these to match your own beacons/config etc.
 	private static final String  ESTIMOTE_BEACON_PROXIMITY_UUID = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
 	private static final Integer BEACON_MAJOR_VERSION 		    = 8727;
 	private static final Integer BEACON_MINOR_VERSION 			= 42728;
@@ -81,7 +82,7 @@ public class HoldWarmColdActivity extends Activity {
 						        	rangeLabel.setBackgroundResource(R.drawable.hot_indicator_background);
 			        		  		break;
 			        		  	case UNKNOWN:
-						        	rangeLabel.setText("?");
+						        	rangeLabel.setText(R.string.question_mark);
 						        	rangeLabel.setTextColor(Color.BLACK);
 						        	rangeLabel.setBackgroundResource(R.drawable.indicator_background);
 			        		  		break;
