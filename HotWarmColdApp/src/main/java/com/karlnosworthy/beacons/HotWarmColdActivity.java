@@ -16,14 +16,10 @@ import com.estimote.sdk.BeaconManager.RangingListener;
 import com.estimote.sdk.Region;
 import com.estimote.sdk.Utils;
 
-public class HoldWarmColdActivity extends Activity {
+public class HotWarmColdActivity extends Activity {
 
-	// Change these to match your own beacons/config etc.
-	private static final String  ESTIMOTE_BEACON_PROXIMITY_UUID = "B9407F30-F5F8-466E-AFF9-25556B57FE6D";
-	private static final Integer BEACON_MAJOR_VERSION 		    = 8727;
-	private static final Integer BEACON_MINOR_VERSION 			= 42728;
-	private static final String  REGION_ID						= "regionid";
-	
+    private static final String TAG = HotWarmColdActivity.class.getSimpleName();
+
 	private BeaconManager beaconManager;
 	private Region region;
 
@@ -39,13 +35,8 @@ public class HoldWarmColdActivity extends Activity {
 	    
 		rangeLabel.setTextColor(Color.BLACK);
 	    rangeLabel.setText(R.string.question_mark);
-	    beaconUuidLabel.setText(ESTIMOTE_BEACON_PROXIMITY_UUID);
-	    beaconVersionLabel.setText(getString(R.string.major) + ": "+BEACON_MAJOR_VERSION + 
-	    						   "   " +
-	    						   getString(R.string.minor) + ": " + BEACON_MINOR_VERSION);
-	
-	    region = new Region(REGION_ID, ESTIMOTE_BEACON_PROXIMITY_UUID, BEACON_MAJOR_VERSION, BEACON_MINOR_VERSION);
-	    
+	    region = new Region("regionid", null, null, null);
+
 	    beaconManager = new BeaconManager(this);
 	    beaconManager.setRangingListener(new RangingListener() {
 			@Override
@@ -55,17 +46,24 @@ public class HoldWarmColdActivity extends Activity {
 			          @Override
 			          public void run() {
 			        	  if (!beacons.isEmpty()) {
+
 			        		  Beacon closestBeacon = beacons.get(0);
-			        		  
-			        		  beaconStatsLabel.setText(getString(R.string.power) + ": " + 
+
+                              beaconUuidLabel.setText(closestBeacon.getProximityUUID());
+                              beaconVersionLabel.setText(getString(R.string.major) + ": "+closestBeacon.getMajor() +
+                                                         "   " + getString(R.string.minor) + ": " + closestBeacon.getMinor());
+
+			        		  beaconStatsLabel.setText(getString(R.string.power) + ": " +
 			        				  		  		closestBeacon.getMeasuredPower() +
 			        				  		  		" " +
 			        				  		  		getString(R.string.dbm) +
 			        				  		  		" |  " +
 			        				  		  		getString(R.string.rssi) + 
 			        				  		  		": " + closestBeacon.getRssi());
-			        		  
-			        		  switch (Utils.computeProximity(closestBeacon)) {
+
+                              double accuracy = Utils.computeAccuracy(closestBeacon);
+
+			        		  switch (Utils.proximityFromAccuracy(accuracy)) {
 			        		  	case FAR:
 			        		  		rangeLabel.setText(R.string.cold);
 						        	rangeLabel.setTextColor(getResources().getColor(R.color.cold_colour));
@@ -105,7 +103,7 @@ public class HoldWarmColdActivity extends Activity {
 	        try {
 	          beaconManager.startRanging(region);
 	        } catch (RemoteException e) {
-	          Toast.makeText(HoldWarmColdActivity.this, getString(R.string.cannot_start_ranging_something_wrong),
+	          Toast.makeText(HotWarmColdActivity.this, getString(R.string.cannot_start_ranging_something_wrong),
 	              Toast.LENGTH_LONG).show();
 	          Log.e("", getString(R.string.cannot_start_ranging), e);
 	        }
