@@ -8,7 +8,7 @@
     <string name="warm">WARM</string>
     <string name="hot">HOT</string>
     <string name="question_mark">\?</string>
-    
+    <string name="mac_address">MAC Address</string>
     <string name="major">Major</string>
     <string name="minor">Minor</string>
     

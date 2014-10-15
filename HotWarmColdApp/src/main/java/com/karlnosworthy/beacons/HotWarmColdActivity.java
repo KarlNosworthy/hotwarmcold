@@ -29,6 +29,7 @@ public class HotWarmColdActivity extends Activity {
 	    setContentView(R.layout.activity_main);
 	    
 	    final TextView rangeLabel = (TextView) findViewById(R.id.range_label);
+        final TextView beaconMacAddressLabel = (TextView) findViewById(R.id.beacon_mac_address_label);
 	    final TextView beaconUuidLabel = (TextView) findViewById(R.id.beacon_uuid_label);
 	    final TextView beaconVersionLabel = (TextView) findViewById(R.id.beacon_major_minor_label);
 	    final TextView beaconStatsLabel = (TextView) findViewById(R.id.beacon_stats_label);
@@ -49,6 +50,7 @@ public class HotWarmColdActivity extends Activity {
 
 			        		  Beacon closestBeacon = beacons.get(0);
 
+                              beaconMacAddressLabel.setText(getString(R.string.mac_address) + " : " + closestBeacon.getMacAddress());
                               beaconUuidLabel.setText(closestBeacon.getProximityUUID());
                               beaconVersionLabel.setText(getString(R.string.major) + ": "+closestBeacon.getMajor() +
                                                          "   " + getString(R.string.minor) + ": " + closestBeacon.getMinor());

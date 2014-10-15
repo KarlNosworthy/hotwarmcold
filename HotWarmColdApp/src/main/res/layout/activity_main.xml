@@ -1,26 +1,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-				      android:id="@+id/container"
-				      android:layout_width="fill_parent"
-				      android:layout_height="fill_parent"
-				      android:orientation="vertical"
-                      android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                      android:layout_marginRight="@dimen/activity_horizontal_margin"
-                      android:layout_marginTop="@dimen/activity_vertical_margin"
-                      android:layout_marginBottom="@dimen/activity_vertical_margin">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="@dimen/activity_vertical_margin">
 
     <TextView android:id="@+id/beacon_title"
         	  android:layout_width="wrap_content"
         	  android:layout_height="wrap_content"
         	  android:layout_centerHorizontal="true"
-        	  android:padding="8dp"
+        	  android:padding="3dp"
         	  android:text="@string/beacon"
+              tools:text="Beacon"
         	  style="@style/beacon_label_style"/>
+
+    <TextView android:id="@+id/beacon_mac_address_label"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerHorizontal="true"
+              android:layout_below="@id/beacon_title"
+              tools:text="MAC Address: D9:A5:90:E7:22:11"
+              style="@style/beacon_property_label_style"/>
     
     <TextView android:id="@+id/beacon_uuid_label"
         	  android:layout_width="wrap_content"
         	  android:layout_height="wrap_content"
         	  android:layout_centerHorizontal="true"
-        	  android:layout_below="@id/beacon_title"
+        	  android:layout_below="@id/beacon_mac_address_label"
+              tools:text="UUID: b9407f30-466e-aff9-25556b57e6d"
         	  style="@style/beacon_property_label_style"/>
     
     <TextView android:id="@+id/beacon_major_minor_label"
@@ -28,16 +39,19 @@
         	  android:layout_height="wrap_content"
         	  android:layout_centerHorizontal="true"
         	  android:layout_below="@id/beacon_uuid_label"
+              tools:text="Major: 8893  Minor: 84938"
         	  style="@style/beacon_property_label_style"/>
     
     <TextView android:id="@+id/range_label"
         	  android:layout_width="260dp"
         	  android:layout_height="260dp"
         	  android:layout_gravity="center_vertical|center_horizontal"
+              android:layout_marginBottom="10dp"
         	  android:gravity="center_vertical|center_horizontal"
         	  android:background="@drawable/indicator_background"
         	  android:maxLines="1"
         	  android:layout_centerInParent="true"
+              tools:text="@string/question_mark"
         	  style="@style/indicator_label_style"/>
     
     <TextView android:id="@+id/beacon_stats_label"
@@ -46,7 +60,6 @@
         	  android:layout_centerHorizontal="true"
         	  android:padding="15dp"
         	  android:layout_below="@id/range_label"
+              tools:text="Power: -74 dBm | Rssi: 82"
         	  style="@style/beacon_property_label_style"/>
-        	  
-    
 </RelativeLayout>
